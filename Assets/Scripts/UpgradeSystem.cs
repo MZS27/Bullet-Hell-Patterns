@@ -35,6 +35,9 @@ public class UpgradeSystem : MonoBehaviour
                 Debug.Log("the recieved upgrade is: " + recieved);
                 break;
 
+            case UpgradeSO.upgrade.DashUpgrade:
+                break;
+
         }
 
     }
