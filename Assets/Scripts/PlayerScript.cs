@@ -72,8 +72,10 @@ public class PlayerScript : MonoBehaviour
     
     void Shoot(Vector2 aimDirection)
     {
+        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        
         // Create the bullet and shoot it in the aiming direction
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.Euler(new Vector3(0, 0, angle)));
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
     
         // Normalize aim direction to ensure bullets shoot correctly in all 360 degrees
@@ -83,7 +85,6 @@ public class PlayerScript : MonoBehaviour
         bulletRb.velocity = aimDirection * bulletSpeed;
     
         // Rotate player or weapon to face the aim direction
-        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
     
