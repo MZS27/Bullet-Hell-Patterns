@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
@@ -20,9 +21,15 @@ public class PlayerScript : MonoBehaviour
     private NewInput _newInput;
     private InputAction _moveAction;
     private InputAction _shootAction;
+    private InputAction _abilityAction;
 
     private float bulletTimer = 0f;
     public float bulletTimerOffset = 0.1f;
+    
+    private float bombTimer = 0f;
+    public float bombTimerOffset = 5f;
+    public GameObject bombPrefab;
+    public UnityEvent onBombShot;
 
     private void Start()
     {
@@ -32,6 +39,8 @@ public class PlayerScript : MonoBehaviour
         _moveAction.Enable();
         _shootAction = _newInput.Player.Shoot;
         _shootAction.Enable();
+        _abilityAction = _newInput.Player.Ability;
+        _abilityAction.Enable();
     }
 
     void FixedUpdate()
@@ -66,8 +75,14 @@ public class PlayerScript : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
         }
+        if (_abilityAction.IsPressed() && isBombReady())
+        {
+            bombTimer = 0f;
+            shootBomb();
+        }
         
         bulletTimer += Time.fixedDeltaTime;
+        bombTimer += Time.fixedDeltaTime;
     }
     
     void Shoot(Vector2 aimDirection)
@@ -87,6 +102,29 @@ public class PlayerScript : MonoBehaviour
         // Rotate player or weapon to face the aim direction
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
+
+    public bool isBombReady()
+    {
+        return bombTimer >= bombTimerOffset;
+    }
+    
+    void shootBomb()
+    {
+        onBombShot.Invoke();
+        // Create the bullet and shoot it in the aiming direction
+        GameObject bomb = Instantiate(bombPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        Rigidbody2D bombRb = bomb.GetComponent<Rigidbody2D>();
+        
+        Vector2 facingDirection = new Vector2(Mathf.Cos(transform.eulerAngles.z * Mathf.Deg2Rad), Mathf.Sin(transform.eulerAngles.z * Mathf.Deg2Rad));
+
+        // Normalize the direction vector
+        facingDirection = facingDirection.normalized;
+        
+        // Set bullet velocity
+        bombRb.velocity = facingDirection * bulletSpeed;
+        
+    }
+    
     
     
     // void Update()

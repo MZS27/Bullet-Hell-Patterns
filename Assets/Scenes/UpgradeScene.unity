@@ -331,53 +331,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8063250362396346475, guid: 24576e80ed4e97d43a8de65679bc4c8a, type: 3}
   m_PrefabInstance: {fileID: 232487401}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &383162568
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 383162569}
-  m_Layer: 0
-  m_Name: AdaptationManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &383162569
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383162568}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 718.3997, y: 362.75577, z: 3.6455688}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &463900099 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8063250362396346475, guid: 24576e80ed4e97d43a8de65679bc4c8a, type: 3}
   m_PrefabInstance: {fileID: 2724827860641753846}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &463900103 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3954021190460149537, guid: 24576e80ed4e97d43a8de65679bc4c8a, type: 3}
-  m_PrefabInstance: {fileID: 2724827860641753846}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e733283c0981da488e84c9fa6987a71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,11 +585,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableUpgrades:
-  - {fileID: 11400000, guid: 76b7f577d14fc6f46b67865fca30d7ca, type: 2}
   - {fileID: 11400000, guid: 6be39d7593dfe034dbbc78fd0ddff825, type: 2}
   - {fileID: 11400000, guid: d999252bae1cb2b499c274c518c4279d, type: 2}
   upgradeButtons:
-  - {fileID: 463900103}
   - {fileID: 1880620144}
   - {fileID: 1924884796}
 --- !u!4 &796146952
@@ -1059,6 +1015,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DashUpgradeBotton
       objectReference: {fileID: 0}
+    - target: {fileID: 4073055648618872505, guid: 24576e80ed4e97d43a8de65679bc4c8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8063250362396346475, guid: 24576e80ed4e97d43a8de65679bc4c8a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1073,7 +1033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8063250362396346475, guid: 24576e80ed4e97d43a8de65679bc4c8a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8063250362396346475, guid: 24576e80ed4e97d43a8de65679bc4c8a, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1081,7 +1041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8063250362396346475, guid: 24576e80ed4e97d43a8de65679bc4c8a, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8063250362396346475, guid: 24576e80ed4e97d43a8de65679bc4c8a, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1121,11 +1081,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8063250362396346475, guid: 24576e80ed4e97d43a8de65679bc4c8a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 222.92221
       objectReference: {fileID: 0}
     - target: {fileID: 8063250362396346475, guid: 24576e80ed4e97d43a8de65679bc4c8a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -283.01126
       objectReference: {fileID: 0}
     - target: {fileID: 8063250362396346475, guid: 24576e80ed4e97d43a8de65679bc4c8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1153,4 +1113,3 @@ SceneRoots:
   - {fileID: 1344001181}
   - {fileID: 60668823}
   - {fileID: 796146952}
-  - {fileID: 383162569}

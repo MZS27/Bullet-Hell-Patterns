@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UpgradeSystem : MonoBehaviour
 {
@@ -26,20 +27,19 @@ public class UpgradeSystem : MonoBehaviour
         switch (recieved.upgradeName)
         {
             case UpgradeSO.upgrade.BarrierUpgrade:
-                Debug.Log("the recieved upgrade is: " + recieved);
-                //unlock barrier for player
-                //set barrier bool true for boss
+                UpgradeInfo.upgradeName = "barrier";
                 break;
 
             case UpgradeSO.upgrade.BombUpgrade:
-                Debug.Log("the recieved upgrade is: " + recieved);
+                UpgradeInfo.upgradeName = "bomb";
                 break;
 
             case UpgradeSO.upgrade.DashUpgrade:
+                UpgradeInfo.upgradeName = "dash";
                 break;
-
         }
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
 
 }
